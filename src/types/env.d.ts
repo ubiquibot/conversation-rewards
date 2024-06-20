@@ -8,6 +8,9 @@ declare global {
       SUPABASE_URL: string;
       NFT_CONTRACT_ADDRESS: string;
       NFT_MINTER_PRIVATE_KEY: string;
+      PERMIT_FEE_RATE: number,
+      PERMIT_TREASURY_ADDRESS: string,
+      PERMIT_ERC20_TOKENS_NO_FEE_WHITELIST: string,
     }
   }
 }

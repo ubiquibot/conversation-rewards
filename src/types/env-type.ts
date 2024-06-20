@@ -8,6 +8,9 @@ const envConfigSchema = Type.Object({
   OPENAI_API_KEY: Type.String(),
   NFT_MINTER_PRIVATE_KEY: Type.String({ default: "" }),
   NFT_CONTRACT_ADDRESS: Type.String({ default: "" }),
+  PERMIT_FEE_RATE: Type.Number({ default: 0 }),
+  PERMIT_TREASURY_ADDRESS: Type.String(),
+  PERMIT_ERC20_TOKENS_NO_FEE_WHITELIST: Type.String(),
 });
 
 export type EnvConfigType = Static<typeof envConfigSchema>;

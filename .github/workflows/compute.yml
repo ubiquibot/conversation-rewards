@@ -28,6 +28,9 @@ jobs:
       SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       NFT_MINTER_PRIVATE_KEY: ${{ secrets.NFT_MINTER_PRIVATE_KEY }}
       NFT_CONTRACT_ADDRESS: ${{ secrets.NFT_CONTRACT_ADDRESS }}
+      PERMIT_FEE_RATE: ${{ secrets.PERMIT_FEE_RATE }}
+      PERMIT_TREASURY_ADDRESS: ${{ secrets.PERMIT_TREASURY_ADDRESS }}
+      PERMIT_ERC20_TOKENS_NO_FEE_WHITELIST: ${{ secrets.PERMIT_ERC20_TOKENS_NO_FEE_WHITELIST }}
 
     steps:
       - name: Checkout code

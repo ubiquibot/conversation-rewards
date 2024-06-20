@@ -16,6 +16,10 @@ export const incentivesConfigurationSchema = T.Object({
    * The encrypted key to use for permit generation
    */
   evmPrivateEncrypted: T.String(),
+  /**
+   * Reward token for ERC20 permits
+   */
+  erc20RewardToken: T.String(),
   incentives: T.Object({
     /**
      * Enables or disables the incentive plugin

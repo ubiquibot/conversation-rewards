@@ -7,7 +7,7 @@ import {
   Database,
   encodePermits,
   generatePayoutPermit,
-  Permit,
+  PermitReward,
   SupportedEvents,
   TokenType,
 } from "@ubiquibot/permit-generation/core";
@@ -27,6 +27,7 @@ interface Payload {
   evmNetworkId: number;
   issueUrl: string;
   evmPrivateEncrypted: string;
+  erc20RewardToken: string;
   issue: { id: number };
 }
 
@@ -40,6 +41,7 @@ export class PermitGenerationModule implements Module {
       issueUrl: program.eventPayload.issue.html_url,
       evmPrivateEncrypted: configuration.evmPrivateEncrypted,
       evmNetworkId: configuration.evmNetworkId,
+      erc20RewardToken: configuration.erc20RewardToken,
     };
     const issueId = Number(payload.issueUrl.match(/[0-9]+$/)?.[0]);
     payload.issue = {
@@ -78,6 +80,7 @@ export class PermitGenerationModule implements Module {
               username: key,
               contributionType: "",
               type: TokenType.ERC20,
+              tokenAddress: payload.erc20RewardToken
             },
           ],
         };
@@ -146,7 +149,7 @@ export class PermitGenerationModule implements Module {
     return locationId;
   }
 
-  async _savePermitsToDatabase(userId: number, issue: { issueId: number; issueUrl: string }, permits: Permit[]) {
+  async _savePermitsToDatabase(userId: number, issue: { issueId: number; issueUrl: string }, permits: PermitReward[]) {
     for (const permit of permits) {
       try {
         const { data: userData } = await this._supabase.from("users").select("id").eq("id", userId).single();
@@ -155,8 +158,8 @@ export class PermitGenerationModule implements Module {
         if (userData) {
           const { error } = await this._supabase.from("permits").insert({
             amount: permit.amount.toString(),
-            nonce: permit.nonce,
-            deadline: permit.deadline,
+            nonce: permit.nonce.toString(),
+            deadline: permit.deadline.toString(),
             signature: permit.signature,
             beneficiary_id: userData.id,
             location_id: locationId,

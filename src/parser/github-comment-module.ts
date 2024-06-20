@@ -8,9 +8,9 @@ import { GithubCommentConfiguration, githubCommentConfigurationType } from "../c
 import { getOctokitInstance } from "../get-authentication-token";
 import { IssueActivity } from "../issue-activity";
 import { parseGitHubUrl } from "../start";
-import { getPayoutConfigByNetworkId } from "../types/payout";
 import program from "./command-line";
 import { GithubCommentScore, Module, Result } from "./processor";
+import { getERC20TokenSymbol } from "../helpers/web3";
 
 interface SortedTasks {
   issues: { specification: GithubCommentScore | null; comments: GithubCommentScore[] };
@@ -28,7 +28,7 @@ export class GithubCommentModule implements Module {
     const bodyArray: (string | undefined)[] = [];
 
     for (const [key, value] of Object.entries(result)) {
-      result[key].evaluationCommentHtml = this._generateHtml(key, value);
+      result[key].evaluationCommentHtml = await this._generateHtml(key, value);
       bodyArray.push(result[key].evaluationCommentHtml);
     }
     const body = bodyArray.join("");
@@ -167,7 +167,7 @@ export class GithubCommentModule implements Module {
     return content.join("");
   }
 
-  _generateHtml(username: string, result: Result[0]) {
+  async _generateHtml(username: string, result: Result[0]) {
     const sortedTasks = result.comments?.reduce<SortedTasks>(
       (acc, curr) => {
         if (curr.type & CommentType.ISSUE) {
@@ -184,13 +184,15 @@ export class GithubCommentModule implements Module {
       { issues: { specification: null, comments: [] }, reviews: [] }
     );
 
+    const tokenSymbol = await getERC20TokenSymbol(configuration.evmNetworkId, configuration.erc20RewardToken);
+
     return `
     <details>
       <summary>
         <b>
           <h3>
             <a href="${result.permitUrl}" target="_blank" rel="noopener">
-              [ ${result.total} ${getPayoutConfigByNetworkId(configuration.evmNetworkId).symbol} ]
+              [ ${result.total} ${tokenSymbol} ]
             </a>
           </h3>
           <h6>
