@@ -1,5 +1,4 @@
 import Decimal from "decimal.js";
-import { encodingForModel } from "js-tiktoken";
 import OpenAI from "openai";
 import configuration from "../configuration/config-reader";
 import { OPENAI_API_KEY } from "../configuration/constants";
@@ -50,7 +49,7 @@ export class ContentEvaluatorModule implements Module {
   async _processComment(comments: Readonly<GithubCommentScore>[], specificationBody: string) {
     const commentsWithScore: GithubCommentScore[] = [...comments];
     const commentsBody = commentsWithScore.map((comment) => comment.content);
-    const relevance = await this._sampleRelevanceScoreResults(specificationBody, commentsBody);
+    const relevance = await this._evaluateComments(specificationBody, commentsBody);
 
     if (relevance.length !== commentsWithScore.length) {
       console.error("Relevance / Comment length mismatch! Skipping.");
@@ -71,12 +70,12 @@ export class ContentEvaluatorModule implements Module {
     return commentsWithScore;
   }
 
-  async _evaluateComments(specification: string, comments: string[]) {
+  async _evaluateComments(specification: string, comments: string[]): Promise<Decimal[]> {
     const prompt = this._generatePrompt(specification, comments);
 
     try {
       const response: OpenAI.Chat.ChatCompletion = await this._openAi.chat.completions.create({
-        model: this._getOptimalModel(prompt),
+        model: "gpt-4o",
         messages: [
           {
             role: "system",
@@ -99,44 +98,6 @@ export class ContentEvaluatorModule implements Module {
     }
   }
 
-  _getOptimalModel(prompt: string) {
-    const encoder = encodingForModel("gpt-3.5-turbo");
-    const totalSumOfTokens = encoder.encode(prompt).length;
-
-    if (totalSumOfTokens <= 4097) {
-      return "gpt-3.5-turbo";
-    } else if (totalSumOfTokens <= 16385) {
-      return "gpt-3.5-turbo-16k";
-    } else {
-      console.warn("Backup plan for development purposes only, but using gpt-4 due to huge context size");
-      return "gpt-4-turbo-preview";
-    }
-  }
-
-  async _sampleRelevanceScoreResults(specification: string, comments: string[]) {
-    const BATCH_SIZE = 10;
-    const evaluationPromises: ReturnType<typeof this._evaluateComments>[] = [];
-
-    for (let i = 0; i < BATCH_SIZE; ++i) {
-      evaluationPromises.push(this._evaluateComments(specification, comments));
-    }
-
-    const results = await Promise.all(evaluationPromises);
-
-    // Calculate the sum of each column
-    const columnSums: Decimal[] = [];
-    for (let j = 0; j < results[0].length; j++) {
-      let sum = new Decimal(0);
-      for (let i = 0; i < results.length; i++) {
-        sum = sum.plus(results[i][j] || 0);
-      }
-      columnSums.push(sum);
-    }
-
-    // Return the average of each column
-    return columnSums.map((sum) => sum.dividedBy(results.length));
-  }
-
   _generatePrompt(issue: string, comments: string[]) {
     if (!issue?.length) {
       throw new Error("Issue specification comment is missing or empty");
@@ -145,8 +106,7 @@ export class ContentEvaluatorModule implements Module {
       .map((comment) => comment)
       .join(
         "\n"
-      )}\n\`\`\`\n\n\nTo what degree are each of the comments in the conversation relevant and valuable to further defining the issue specification? Please reply with ONLY an array of float numbers between 0 and 1, corresponding to each comment in the order they appear. Each float should represent the degree of relevance and added value of the comment to the issue. The total length of the array in your response should equal exactly ${
-      comments.length
-    } elements.`;
+      )}\n\`\`\`\n\n\nTo what degree are each of the comments in the conversation relevant and valuable to further defining the issue specification? Please reply with ONLY an array of float numbers between 0 and 1, corresponding to each comment in the order they appear. Each float should represent the degree of relevance and added value of the comment to the issue. The total length of the array in your response should equal exactly ${comments.length
+      } elements.`;
   }
 }

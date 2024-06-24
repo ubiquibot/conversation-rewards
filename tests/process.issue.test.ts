@@ -220,6 +220,8 @@ describe("Modules tests", () => {
   });
 
   it("Should do a full run", async () => {
-    require("../src/index.ts");
+    const module = (await import("../src/index.ts")) as unknown as { default: Promise<string> };
+    const result = await module.default;
+    expect(result).toBeTruthy();
   });
 });

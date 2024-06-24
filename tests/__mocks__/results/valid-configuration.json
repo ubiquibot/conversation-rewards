@@ -3,6 +3,7 @@
   "evmPrivateEncrypted": "kmpTKq5Wh9r9x5j3U9GqZr3NYnjK2g0HtbzeUBOuLC2y3x8ja_SKBNlB2AZ6LigXHP_HeMitftVUtzmoj8CFfVP9SqjWoL6IPku1hVTWkdTn97g1IxzmjydFxjdcf0wuDW1hvVtoq3Uw5yALABqxcQ",
   "incentives": {
     "enabled": true,
+    "requirePriceLabel": true,
     "contentEvaluator": {
       "enabled": true
     },
@@ -17,7 +18,7 @@
       "enabled": true,
       "multipliers": [
         {
-          "type": [
+          "targets": [
             "ISSUE",
             "ISSUER",
             "SPECIFICATION"
@@ -26,7 +27,7 @@
           "wordValue": 0.1
         },
         {
-          "type": [
+          "targets": [
             "ISSUE",
             "ISSUER",
             "COMMENTED"
@@ -35,7 +36,7 @@
           "wordValue": 0.2
         },
         {
-          "type": [
+          "targets": [
             "ISSUE",
             "ASSIGNEE",
             "COMMENTED"
@@ -44,7 +45,7 @@
           "wordValue": 0
         },
         {
-          "type": [
+          "targets": [
             "ISSUE",
             "COLLABORATOR",
             "COMMENTED"
@@ -53,7 +54,7 @@
           "wordValue": 0.1
         },
         {
-          "type": [
+          "targets": [
             "ISSUE",
             "CONTRIBUTOR",
             "COMMENTED"
@@ -62,7 +63,7 @@
           "wordValue": 0.1
         },
         {
-          "type": [
+          "targets": [
             "REVIEW",
             "ISSUER",
             "TASK"
@@ -71,7 +72,7 @@
           "wordValue": 0
         },
         {
-          "type": [
+          "targets": [
             "REVIEW",
             "ISSUER",
             "COMMENTED"
@@ -80,7 +81,7 @@
           "wordValue": 0.2
         },
         {
-          "type": [
+          "targets": [
             "REVIEW",
             "ASSIGNEE",
             "COMMENTED"
@@ -89,7 +90,7 @@
           "wordValue": 0.1
         },
         {
-          "type": [
+          "targets": [
             "REVIEW",
             "COLLABORATOR",
             "COMMENTED"
@@ -98,7 +99,7 @@
           "wordValue": 0.1
         },
         {
-          "type": [
+          "targets": [
             "REVIEW",
             "CONTRIBUTOR",
             "COMMENTED"
