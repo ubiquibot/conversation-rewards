@@ -105,6 +105,13 @@ export class PermitGenerationModule implements Module {
           config.permitRequests
         );
         result[key].permitUrl = `https://pay.ubq.fi?claim=${encodePermits(permits)}`;
+
+        // debug, remove later
+        console.log('===PermitGenerationModule:transform()===');
+        console.log(permits);
+        console.log(encodePermits(permits));
+        console.log('===end===');
+
         await this._savePermitsToDatabase(result[key].userId, { issueUrl: payload.issueUrl, issueId }, permits);
       } catch (e) {
         console.error(e);
