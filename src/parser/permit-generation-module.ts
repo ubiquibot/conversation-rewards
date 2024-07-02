@@ -47,6 +47,12 @@ export class PermitGenerationModule implements Module {
     payload.issue = {
       id: issueId,
     };
+
+    // debug, remove later
+    console.log('===PermitGenerationModule:transform()===');
+    console.log(result);
+    console.log('===end===');
+
     const env = Value.Default(envConfigSchema, process.env) as EnvConfigType;
     if (!Value.Check(envConfigSchema, env)) {
       console.warn("[PermitGenerationModule] Invalid env detected, skipping.");
