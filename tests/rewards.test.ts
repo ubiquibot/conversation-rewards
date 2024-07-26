@@ -124,6 +124,10 @@ jest.mock("../src/helpers/web3", () => ({
   },
 }));
 
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
 describe("Rewards tests", () => {
   const issue = parseGitHubUrl(issueUrl);
   const activity = new IssueActivity(issue);

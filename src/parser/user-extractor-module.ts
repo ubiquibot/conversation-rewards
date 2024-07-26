@@ -15,7 +15,7 @@ export class UserExtractorModule implements Module {
 
   get enabled(): boolean {
     if (!Value.Check(userExtractorConfigurationType, this._configuration)) {
-      console.warn("Invalid configuration detected for UserExtractorModule, disabling.");
+      console.warn("Invalid / missing configuration detected for UserExtractorModule, disabling.");
       return false;
     }
     return true;

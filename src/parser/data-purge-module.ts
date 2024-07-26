@@ -12,7 +12,7 @@ export class DataPurgeModule implements Module {
 
   get enabled(): boolean {
     if (!Value.Check(dataPurgeConfigurationType, this._configuration)) {
-      console.warn("Invalid configuration detected for DataPurgeModule, disabling.");
+      console.warn("Invalid / missing configuration detected for DataPurgeModule, disabling.");
       return false;
     }
     return true;

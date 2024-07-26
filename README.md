@@ -46,7 +46,7 @@ Reward formula: `((count * wordValue) * (score * formattingMultiplier) * n) * re
 
 ## Plugin configuration
 
-Here is a possible valid configuration to enable this plugin. See [these files](./src/configuration) for more details.
+Here is a possible valid configuration to enable this plugin. See [these files](./src/configuration/) for more details.
 
 
 ```yaml
@@ -65,55 +65,65 @@ with:
         redeemTask: true
       dataPurge:
       formattingEvaluator:
-        scores:
-          br: 0
-          code: 1
-          p: 1
-          em: 0
-          img: 0
-          strong: 0
-          blockquote: 0
-          h1: 1
-          h2: 1
-          h3: 1
-          h4: 1
-          h5: 1
-          h6: 1
-          a: 1
-          li: 1
-          td: 1
-          hr: 0
         multipliers:
           - select: [ ISSUE_SPECIFICATION ]
             formattingMultiplier: 1
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
+            scores: # Scores can be set for each item differently
+              br: 0
+              code: 1
+              p: 1
+              em: 0
+              img: 0
+              strong: 0
+              blockquote: 0
+              h1: 1
+              h2: 1
+              h3: 1
+              h4: 1
+              h5: 1
+              h6: 1
+              a: 1
+              li: 1
+              td: 1
+              hr: 0
           - select: [ ISSUE_AUTHOR ]
             formattingMultiplier: 1
-            wordValue: 0.2
+            symbols:
+              "\\b\\w+\\b": 0.2
           - select: [ ISSUE_ASSIGNEE ]
             formattingMultiplier: 0
-            wordValue: 0
+            symbols:
+              "\\b\\w+\\b": 0
           - select: [ ISSUE_COLLABORATOR ]
             formattingMultiplier: 1
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
           - select: [ ISSUE_CONTRIBUTOR ]
             formattingMultiplier: 0.25
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
           - select: [ PULL_SPECIFICATION ]
             formattingMultiplier: 0
-            wordValue: 0
+            symbols:
+              "\\b\\w+\\b": 0
           - select: [ PULL_AUTHOR ]
             formattingMultiplier: 2
-            wordValue: 0.2
+            symbols:
+              "\\b\\w+\\b": 0.2
           - select: [ PULL_ASSIGNEE ]
             formattingMultiplier: 1
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
           - select: [ PULL_COLLABORATOR ]
             formattingMultiplier: 1
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
           - select: [ PULL_CONTRIBUTOR ]
             formattingMultiplier: 0.25
-            wordValue: 0.1
+            symbols:
+              "\\b\\w+\\b": 0.1
       permitGeneration:
       githubComment:
         post: true

@@ -19,7 +19,7 @@ export class ContentEvaluatorModule implements Module {
 
   get enabled(): boolean {
     if (!Value.Check(contentEvaluatorConfigurationType, this._configuration)) {
-      console.warn("Invalid configuration detected for ContentEvaluatorModule, disabling.");
+      console.warn("Invalid / missing configuration detected for ContentEvaluatorModule, disabling.");
       return false;
     }
     return true;
