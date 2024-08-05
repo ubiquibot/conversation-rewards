@@ -1,10 +1,101 @@
 {
+  "gitcoindev": {
+    "userId": 88761781,
+    "total": 47.5,
+    "task": {
+      "reward": 37.5,
+      "multiplier": 1
+    },
+    "comments": [
+      {
+        "id": 1949333227,
+        "content": "@molecula451 I tried to override X25519_PRIVATE_KEY but it did not help. It seems that https://github.com/ubiquibot/production/blob/1937a6ba75588f51d1bf07fed1f6384f79090465/.github/ubiquibot-config.yml#L2 takes precedence over https://github.com/ubiquibot/comment-incentives/blob/main/.github/ubiquibot-config.yml#L2 (I see the first one in logs).",
+        "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949333227",
+        "type": "ISSUE_ASSIGNEE",
+        "score": {
+          "formatting": {
+            "content": {
+              "p": {
+                "count": 26,
+                "score": 1
+              }
+            },
+            "wordValue": 0,
+            "formattingMultiplier": 0
+          },
+          "reward": 0,
+          "relevance": 0.8
+        }
+      },
+      {
+        "id": 1730006888,
+        "content": "The new evmPrivateKeyEncrypted generated for address 0x3a2E44e10AbEf5CB4a6E492c5ba93d30068d2D95 (no funds).\r\nResolves: https://github.com/ubiquibot/comment-incentives/issues/22",
+        "url": "https://github.com/ubiquibot/comment-incentives/pull/25",
+        "type": "PULL_SPECIFICATION",
+        "score": {
+          "formatting": {
+            "content": {
+              "p": {
+                "count": 11,
+                "score": 1
+              }
+            },
+            "wordValue": 0,
+            "formattingMultiplier": 0
+          },
+          "reward": 0,
+          "relevance": 0.8
+        }
+      },
+      {
+        "id": 1949044575,
+        "content": "@pavlovcik @molecula451 please check now again, I added to docs.",
+        "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949044575",
+        "type": "PULL_AUTHOR",
+        "score": {
+          "formatting": {
+            "content": {
+              "p": {
+                "count": 10,
+                "score": 1
+              }
+            },
+            "wordValue": 0.2,
+            "formattingMultiplier": 2
+          },
+          "reward": 4,
+          "relevance": 1
+        }
+      },
+      {
+        "id": 1949046925,
+        "content": "No way, full details are available in plain sight, only for test in production purposes",
+        "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949046925",
+        "type": "PULL_AUTHOR",
+        "score": {
+          "formatting": {
+            "content": {
+              "p": {
+                "count": 15,
+                "score": 1
+              }
+            },
+            "wordValue": 0.2,
+            "formattingMultiplier": 2
+          },
+          "reward": 6,
+          "relevance": 1
+        }
+      }
+    ]
+  },
   "molecula451": {
-    "total": 1.78,
+    "total": 1.875,
     "userId": 41552663,
     "comments": [
       {
-        "content": "pavlovcik i think we need to update a bit the readme ![image_2024-02-16_131036879](https://github.com/ubiquibot/comment-incentives/assets/41552663/41516d66-4666-47d7-9efe-517fb26293dd)   dm what to whom?",
+        "id": 1948916343,
+        "content": "pavlovcik i think we need to update a bit the readme\r\n![image_2024-02-16_131036879](https://github.com/ubiquibot/comment-incentives/assets/41552663/41516d66-4666-47d7-9efe-517fb26293dd)\r\ndm what to whom?",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1948916343",
         "type": "ISSUE_CONTRIBUTOR",
         "score": {
@@ -27,6 +118,7 @@
         }
       },
       {
+        "id": 1948989989,
         "content": "let us know when done",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1948989989",
         "type": "ISSUE_CONTRIBUTOR",
@@ -46,6 +138,7 @@
         }
       },
       {
+        "id": 1949195772,
         "content": "https://github.com/ubiquibot/comment-incentives/actions/runs/7935268560 invalid input sounds unexpected @gitcoindev ??",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949195772",
         "type": "ISSUE_CONTRIBUTOR",
@@ -65,6 +158,7 @@
         }
       },
       {
+        "id": 1949564869,
         "content": "@pavlovcik permitted with hard debug (tho no funds in the private key)",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949564869",
         "type": "ISSUE_CONTRIBUTOR",
@@ -84,6 +178,7 @@
         }
       },
       {
+        "id": 1949635137,
         "content": "pavlovcik i re-generated the X25519 to trigger the permit, what you don't understand? using a private key i own, but also did many commits to reach the root cause",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949635137",
         "type": "ISSUE_CONTRIBUTOR",
@@ -103,6 +198,7 @@
         }
       },
       {
+        "id": 1949639196,
         "content": "sure thing",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949639196",
         "type": "ISSUE_CONTRIBUTOR",
@@ -122,6 +218,7 @@
         }
       },
       {
+        "id": 1949038563,
         "content": "indeed",
         "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949038563",
         "type": "PULL_CONTRIBUTOR",
@@ -136,11 +233,12 @@
             "wordValue": 0.1,
             "formattingMultiplier": 0.25
           },
-          "reward": 0.02,
-          "relevance": 0.8
+          "reward": 0.025,
+          "relevance": 1
         }
       },
       {
+        "id": 1949044855,
         "content": "go to go pavlovick, we'll be using this one for test only or test in production (lmao) ?",
         "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949044855",
         "type": "PULL_CONTRIBUTOR",
@@ -155,17 +253,18 @@
             "wordValue": 0.1,
             "formattingMultiplier": 0.25
           },
-          "reward": 0.36,
-          "relevance": 0.8
+          "reward": 0.45,
+          "relevance": 1
         }
       }
     ]
   },
   "0x4007": {
-    "total": 60.24,
+    "total": 68,
     "userId": 4975670,
     "comments": [
       {
+        "id": 1948930217,
         "content": "Link below for conversation context. It was to me. Anyways you need to create a new private key for this task!",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1948930217",
         "type": "ISSUE_AUTHOR",
@@ -185,6 +284,7 @@
         }
       },
       {
+        "id": 1949201722,
         "content": "In the repository secrets I think I need to change the key to match @gitcoindev's",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949201722",
         "type": "ISSUE_AUTHOR",
@@ -204,7 +304,8 @@
         }
       },
       {
-        "content": "I just changed it to `627H-BcWbcp_O3YmQGIA6MqgxVsFuplFCA9DK3iC7GQ` I hope that it doesn't break production for some reason (it should get it from Netlify secrets, but not sure if we implemented this correctly!) I fear that we might need to build a feature for this to support development key pair and production. Unfortunately I'm already winding down for the day so I'll leave you guys to try and investigate.",
+        "id": 1949203681,
+        "content": "I just changed it to `627H-BcWbcp_O3YmQGIA6MqgxVsFuplFCA9DK3iC7GQ`\r\nI hope that it doesn't break production for some reason (it should get it from Netlify secrets, but not sure if we implemented this correctly!)\r\nI fear that we might need to build a feature for this to support development key pair and production. Unfortunately I'm already winding down for the day so I'll leave you guys to try and investigate.",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949203681",
         "type": "ISSUE_AUTHOR",
         "score": {
@@ -227,6 +328,7 @@
         }
       },
       {
+        "id": 1949633751,
         "content": "I don't understand what you mean by this",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949633751",
         "type": "ISSUE_AUTHOR",
@@ -246,6 +348,7 @@
         }
       },
       {
+        "id": 1949639054,
         "content": "I'll investigate more on my computer later.",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949639054",
         "type": "ISSUE_AUTHOR",
@@ -265,7 +368,8 @@
         }
       },
       {
-        "content": "Will it be an issue if I revert to the commit and secret that I had before? It was the production x25519 key in the GitHub repository secrets when it was working like eight hours ago.  Posting this message before checking on my computer to get you before you log off.",
+        "id": 1949642845,
+        "content": "Will it be an issue if I revert to the commit and secret that I had before?\nIt was the production x25519 key in the GitHub repository secrets when it was working like eight hours ago. \nPosting this message before checking on my computer to get you before you log off.",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949642845",
         "type": "ISSUE_AUTHOR",
         "score": {
@@ -284,18 +388,27 @@
         }
       },
       {
-        "content": "Can somebody work on generating a new `X25519_PRIVATE_KEY` for the ubiquibot organization? We need to share it for development purposes. 1. Generate a new key 2. Encrypt a new `evmPrivateKeyEncrypted` (no funds!) and add to the org bot config 3. Add the shared test key to the `comment-incentives` readme.  https://github.com/ubiquibot/comment-incentives/pull/21/commits/567419d9688e92edf698f64c697f1a7cafe1d02e _Originally posted by @pavlovcik in https://github.com/ubiquibot/comment-incentives/issues/19#issuecomment-1948876653_",
+        "id": 2139000633,
+        "content": "Can somebody work on generating a new `X25519_PRIVATE_KEY` for the ubiquibot organization? We need to share it for development purposes.\r\n1. Generate a new key\r\n2. Encrypt a new `evmPrivateKeyEncrypted` (no funds!) and add to the org bot config\r\n3. Add the shared test key to the `comment-incentives` readme. \r\nhttps://github.com/ubiquibot/comment-incentives/pull/21/commits/567419d9688e92edf698f64c697f1a7cafe1d02e\r\n_Originally posted by @pavlovcik in https://github.com/ubiquibot/comment-incentives/issues/19#issuecomment-1948876653_",
         "url": "https://github.com/ubiquibot/comment-incentives/issues/22",
         "type": "ISSUE_SPECIFICATION",
         "score": {
           "formatting": {
             "content": {
               "p": {
-                "count": 56,
+                "count": 20,
                 "score": 1
               },
               "code": {
                 "count": 3,
+                "score": 1
+              },
+              "ol": {
+                "count": 33,
+                "score": 0
+              },
+              "li": {
+                "count": 33,
                 "score": 1
               },
               "em": {
@@ -306,11 +419,12 @@
             "wordValue": 0.1,
             "formattingMultiplier": 1
           },
-          "reward": 4.72,
-          "relevance": 0.8
+          "reward": 5.6,
+          "relevance": 1
         }
       },
       {
+        "id": 1949021356,
         "content": "Need to document a private key too",
         "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949021356",
         "type": "PULL_COLLABORATOR",
@@ -325,11 +439,12 @@
             "wordValue": 0.1,
             "formattingMultiplier": 1
           },
-          "reward": 0.56,
-          "relevance": 0.8
+          "reward": 0.7,
+          "relevance": 1
         }
       },
       {
+        "id": 1949196677,
         "content": "I was editing this right now but was too slow to push.",
         "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949196677",
         "type": "PULL_COLLABORATOR",
@@ -344,19 +459,20 @@
             "wordValue": 0.1,
             "formattingMultiplier": 1
           },
-          "reward": 0.96,
-          "relevance": 0.8
+          "reward": 1.2,
+          "relevance": 1
         }
       },
       {
-        "content": "I am quoting some code! <task-lists sortable=\"\"> <table class=\"d-block user-select-contain\" data-paste-markdown-skip=\"\">   <tbody class=\"d-block\">     <tr class=\"d-block\">       <td class=\"d-block comment-body markdown-body  js-comment-body\">           <details open=\"\">       <summary>         <b>           <h3 dir=\"auto\">             <a href=\"https://pay.ubq.fi?claim=W3sidHlwZSI6ImVyYzIwLXBlcm1pdCIsInBlcm1pdCI6eyJwZXJtaXR0ZWQiOnsidG9rZW4iOiIweGU5MUQxNTNFMGI0MTUxOEEyQ2U4RGQzRDc5NDRGYTg2MzQ2M2E5N2QiLCJhbW91bnQiOiIyODAwMDAwMDAwMDAwMDAwMDAifSwibm9uY2UiOiIzODYyOTY0MDg5ODkzNzI1MzYwMjc5MjAyNzMxMjA2NzgzMTY0NDI2OTA3NTY2NTIxNzQ0NDkyNjQ1MTA0NTIyODU4Nzk1MjgzMDk0NCIsImRlYWRsaW5lIjoiNTc4OTYwNDQ2MTg2NTgwOTc3MTE3ODU0OTI1MDQzNDM5NTM5MjY2MzQ5OTIzMzI4MjAyODIwMTk3Mjg3OTIwMDM5NTY1NjQ4MTk5NjcifSwidHJhbnNmZXJEZXRhaWxzIjp7InRvIjoiMHgwZkMxYjkwOWJhOTI2NUE4NDZiODJDRjRDRTM1MmZjM2U3RWVCMkVEIiwicmVxdWVzdGVkQW1vdW50IjoiMjgwMDAwMDAwMDAwMDAwMDAwIn0sIm93bmVyIjoiMHg0NENhMTVEYjEwMWZEMWMxOTQ0NjdEYjZBRjBjNjdDNkJiRjRBQjUxIiwic2lnbmF0dXJlIjoiMHhiMzE4MmIwNjJiMDJmMjEwZTIzN2UzODQxMDNmNGE4YTUwMDNjMmYyODhiMDY5Nzg4MTY1ZDkwOWY4ODZmYTMzNTM4MjJlYjA5MGI1ODdjMWFiNWFiOTNjNTVlZDhkOTdiYzM3YzBmZjZlZDJhMWRkM2U1NjQ4M2JlMzk5MWIwNTFjIiwibmV0d29ya0lkIjoxMDB9XQ==\" rel=\"nofollow\">               [ 0.28 WXDAI ]             </a>           </h3>           <h6 dir=\"auto\">             <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/gentlementlegen/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/gentlementlegen\">@gentlementlegen</a>           </h6>         </b>       </summary>       <h6 dir=\"auto\">Contributions Overview</h6>       <table role=\"table\">         <thead>           <tr>             <th>View</th>             <th>Contribution</th>             <th>Count</th>             <th>Reward</th>           </tr>         </thead>         <tbody>                      <tr>             <td>Issue</td>             <td>Specification</td>             <td>1</td>             <td>0.1</td>           </tr>           <tr>             <td>Issue</td>             <td>Comment</td>             <td>7</td>             <td>0.18</td>           </tr>         </tbody>       </table>       <h6 dir=\"auto\">Conversation Incentives</h6>       <table role=\"table\">         <thead>           <tr>             <th>Comment</th>             <th>Formatting</th>             <th>Relevance</th>             <th>Reward</th>           </tr>         </thead>         <tbody>                      <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">issue 2</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 2   score: 1 </pre>              </details>             </td>             <td>0.5</td>             <td>0.1</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076607863\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">test</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076628437\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">```hey```</a>               </h6>             </td>             <td>             <details>               <summary>                 0.4               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 code:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076628605\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">``` heyo ```</a>               </h6>             </td>             <td>             <details>               <summary>                 0.4               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 code:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076632071\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">gr</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076960228\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">te</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076964178\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">fwe</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 </pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076972544\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">te</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:   count: 1   score: 1 </pre>              </details>             </td>             <td>0.9</td>             <td>0.18</td>           </tr>         </tbody>       </table>     </details>       </td>     </tr>   </tbody> </table> </task-lists> [😂](https://emojipedia.org/face-with-tears-of-joy) - elem 1 - elem 2",
+        "id": 1949196678,
+        "content": "I am quoting some code!\r\n<task-lists sortable=\"\">\r\n<table class=\"d-block user-select-contain\" data-paste-markdown-skip=\"\">\r\n  <tbody class=\"d-block\">\r\n    <tr class=\"d-block\">\r\n      <td class=\"d-block comment-body markdown-body  js-comment-body\">\r\n          <details open=\"\">       <summary>         <b>           <h3 dir=\"auto\">             <a href=\"https://pay.ubq.fi?claim=W3sidHlwZSI6ImVyYzIwLXBlcm1pdCIsInBlcm1pdCI6eyJwZXJtaXR0ZWQiOnsidG9rZW4iOiIweGU5MUQxNTNFMGI0MTUxOEEyQ2U4RGQzRDc5NDRGYTg2MzQ2M2E5N2QiLCJhbW91bnQiOiIyODAwMDAwMDAwMDAwMDAwMDAifSwibm9uY2UiOiIzODYyOTY0MDg5ODkzNzI1MzYwMjc5MjAyNzMxMjA2NzgzMTY0NDI2OTA3NTY2NTIxNzQ0NDkyNjQ1MTA0NTIyODU4Nzk1MjgzMDk0NCIsImRlYWRsaW5lIjoiNTc4OTYwNDQ2MTg2NTgwOTc3MTE3ODU0OTI1MDQzNDM5NTM5MjY2MzQ5OTIzMzI4MjAyODIwMTk3Mjg3OTIwMDM5NTY1NjQ4MTk5NjcifSwidHJhbnNmZXJEZXRhaWxzIjp7InRvIjoiMHgwZkMxYjkwOWJhOTI2NUE4NDZiODJDRjRDRTM1MmZjM2U3RWVCMkVEIiwicmVxdWVzdGVkQW1vdW50IjoiMjgwMDAwMDAwMDAwMDAwMDAwIn0sIm93bmVyIjoiMHg0NENhMTVEYjEwMWZEMWMxOTQ0NjdEYjZBRjBjNjdDNkJiRjRBQjUxIiwic2lnbmF0dXJlIjoiMHhiMzE4MmIwNjJiMDJmMjEwZTIzN2UzODQxMDNmNGE4YTUwMDNjMmYyODhiMDY5Nzg4MTY1ZDkwOWY4ODZmYTMzNTM4MjJlYjA5MGI1ODdjMWFiNWFiOTNjNTVlZDhkOTdiYzM3YzBmZjZlZDJhMWRkM2U1NjQ4M2JlMzk5MWIwNTFjIiwibmV0d29ya0lkIjoxMDB9XQ==\" rel=\"nofollow\">               [ 0.28 WXDAI ]             </a>           </h3>           <h6 dir=\"auto\">             <a class=\"user-mention notranslate\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/gentlementlegen/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\" href=\"https://github.com/gentlementlegen\">@gentlementlegen</a>           </h6>         </b>       </summary>       <h6 dir=\"auto\">Contributions Overview</h6>       <table role=\"table\">         <thead>           <tr>             <th>View</th>             <th>Contribution</th>             <th>Count</th>             <th>Reward</th>           </tr>         </thead>         <tbody>                      <tr>             <td>Issue</td>             <td>Specification</td>             <td>1</td>             <td>0.1</td>           </tr>           <tr>             <td>Issue</td>             <td>Comment</td>             <td>7</td>             <td>0.18</td>           </tr>         </tbody>       </table>       <h6 dir=\"auto\">Conversation Incentives</h6>       <table role=\"table\">         <thead>           <tr>             <th>Comment</th>             <th>Formatting</th>             <th>Relevance</th>             <th>Reward</th>           </tr>         </thead>         <tbody>                      <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">issue 2</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 2\r\n  score: 1\r\n</pre>              </details>             </td>             <td>0.5</td>             <td>0.1</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076607863\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">test</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076628437\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">```hey```</a>               </h6>             </td>             <td>             <details>               <summary>                 0.4               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\ncode:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076628605\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">``` heyo ```</a>               </h6>             </td>             <td>             <details>               <summary>                 0.4               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\ncode:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076632071\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">gr</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076960228\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">te</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076964178\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">fwe</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>-</td>             <td>-</td>           </tr>           <tr>             <td>               <h6 dir=\"auto\">                 <a href=\"https://github.com/Meniole/bot/issues/3#issuecomment-2076972544\" data-hovercard-type=\"issue\" data-hovercard-url=\"/Meniole/bot/issues/3/hovercard\">te</a>               </h6>             </td>             <td>             <details>               <summary>                 0.2               </summary>               <pre class=\"notranslate\">p:\r\n  count: 1\r\n  score: 1\r\n</pre>              </details>             </td>             <td>0.9</td>             <td>0.18</td>           </tr>         </tbody>       </table>     </details>\r\n      </td>\r\n    </tr>\r\n  </tbody>\r\n</table>\r\n</task-lists>\r\n[😂](https://emojipedia.org/face-with-tears-of-joy)\r\n- elem 1\r\n- elem 2",
         "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949196678",
         "type": "PULL_COLLABORATOR",
         "score": {
           "formatting": {
             "content": {
               "p": {
-                "count": 332,
+                "count": 326,
                 "score": 1
               },
               "code": {
@@ -366,99 +482,21 @@
               "a": {
                 "count": 1,
                 "score": 1
+              },
+              "ul": {
+                "count": 4,
+                "score": 0
+              },
+              "li": {
+                "count": 4,
+                "score": 1
               }
             },
             "wordValue": 0.1,
             "formattingMultiplier": 1
           },
-          "reward": 26.8,
-          "relevance": 0.8
-        }
-      }
-    ]
-  },
-  "gitcoindev": {
-    "total": 45.5,
-    "task": {
-      "reward": 37.5,
-      "multiplier": 1
-    },
-    "userId": 88761781,
-    "comments": [
-      {
-        "content": "@molecula451 I tried to override X25519_PRIVATE_KEY but it did not help. It seems that https://github.com/ubiquibot/production/blob/1937a6ba75588f51d1bf07fed1f6384f79090465/.github/ubiquibot-config.yml#L2 takes precedence over https://github.com/ubiquibot/comment-incentives/blob/main/.github/ubiquibot-config.yml#L2 (I see the first one in logs).",
-        "url": "https://github.com/ubiquibot/comment-incentives/issues/22#issuecomment-1949333227",
-        "type": "ISSUE_ASSIGNEE",
-        "score": {
-          "formatting": {
-            "content": {
-              "p": {
-                "count": 26,
-                "score": 1
-              }
-            },
-            "wordValue": 0,
-            "formattingMultiplier": 0
-          },
-          "reward": 0,
-          "relevance": 0.8
-        }
-      },
-      {
-        "content": "The new evmPrivateKeyEncrypted generated for address 0x3a2E44e10AbEf5CB4a6E492c5ba93d30068d2D95 (no funds). Resolves: https://github.com/ubiquibot/comment-incentives/issues/22",
-        "url": "https://github.com/ubiquibot/comment-incentives/pull/25",
-        "type": "PULL_SPECIFICATION",
-        "score": {
-          "formatting": {
-            "content": {
-              "p": {
-                "count": 11,
-                "score": 1
-              }
-            },
-            "wordValue": 0,
-            "formattingMultiplier": 0
-          },
-          "reward": 0,
-          "relevance": 0.8
-        }
-      },
-      {
-        "content": "@pavlovcik @molecula451 please check now again, I added to docs.",
-        "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949044575",
-        "type": "PULL_AUTHOR",
-        "score": {
-          "formatting": {
-            "content": {
-              "p": {
-                "count": 10,
-                "score": 1
-              }
-            },
-            "wordValue": 0.2,
-            "formattingMultiplier": 2
-          },
-          "reward": 3.2,
-          "relevance": 0.8
-        }
-      },
-      {
-        "content": "No way, full details are available in plain sight, only for test in production purposes",
-        "url": "https://github.com/ubiquibot/comment-incentives/pull/25#issuecomment-1949046925",
-        "type": "PULL_AUTHOR",
-        "score": {
-          "formatting": {
-            "content": {
-              "p": {
-                "count": 15,
-                "score": 1
-              }
-            },
-            "wordValue": 0.2,
-            "formattingMultiplier": 2
-          },
-          "reward": 4.8,
-          "relevance": 0.8
+          "reward": 33.3,
+          "relevance": 1
         }
       }
     ]
