@@ -1,7 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { parseGitHubUrl } from "../src/start";
 import { IssueActivity } from "../src/issue-activity";
-import { Processor } from "../src/parser/processor";
+import { GithubCommentScore, Processor } from "../src/parser/processor";
 import { UserExtractorModule } from "../src/parser/user-extractor-module";
 import { server } from "./__mocks__/node";
 import { DataPurgeModule } from "../src/parser/data-purge-module";
@@ -24,10 +24,6 @@ import validConfiguration from "./__mocks__/results/valid-configuration.json";
 import "../src/parser/command-line";
 
 const issueUrl = process.env.TEST_ISSUE_URL || "https://github.com/ubiquibot/comment-incentives/issues/22";
-
-jest.spyOn(ContentEvaluatorModule.prototype, "_evaluateComments").mockImplementation((specification, comments) => {
-  return Promise.resolve(comments.map(() => new Decimal(0.8)));
-});
 
 jest.mock("../src/helpers/web3", () => ({
   getERC20TokenSymbol() {
@@ -152,6 +148,20 @@ describe("Modules tests", () => {
     }
   });
 
+  beforeEach(async () => {
+    jest.spyOn(ContentEvaluatorModule.prototype, "_evaluateComments").mockImplementation((specification, comments) => {
+      return Promise.resolve(
+        (() => {
+          const relevance: { [k: string]: Decimal } = {};
+          comments.forEach((comment) => {
+            relevance[`${comment.id}`] = new Decimal(0.8);
+          });
+          return relevance;
+        })()
+      );
+    });
+  });
+
   it("Should extract users from comments", async () => {
     const processor = new Processor();
     processor["_transformers"] = [new UserExtractorModule()];
@@ -187,6 +197,28 @@ describe("Modules tests", () => {
     await processor.run(activity);
     const result = JSON.parse(processor.dump());
     expect(result).toEqual(contentEvaluatorResults);
+  });
+
+  it("Should evaluate a failed openai evaluation with relevance 1", async () => {
+    jest.spyOn(ContentEvaluatorModule.prototype, "_evaluateComments").mockImplementation(() => {
+      return Promise.resolve({});
+    });
+
+    const processor = new Processor();
+    processor["_transformers"] = [
+      new UserExtractorModule(),
+      new DataPurgeModule(),
+      new FormattingEvaluatorModule(),
+      new ContentEvaluatorModule(),
+    ];
+    await processor.run(activity);
+    const result = JSON.parse(processor.dump());
+    Object.keys(result).forEach((user) => {
+      expect(result[user]["comments"].length).toBeGreaterThan(0);
+      result[user]["comments"].forEach((comment: GithubCommentScore) => {
+        expect(comment.score?.relevance).toEqual(1);
+      });
+    });
   });
 
   it("Should generate permits", async () => {
