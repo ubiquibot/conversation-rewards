@@ -1,14 +1,37 @@
 {
-  "evmNetworkId": 100,
-  "evmPrivateEncrypted": "kmpTKq5Wh9r9x5j3U9GqZr3NYnjK2g0HtbzeUBOuLC2y3x8ja_SKBNlB2AZ6LigXHP_HeMitftVUtzmoj8CFfVP9SqjWoL6IPku1hVTWkdTn97g1IxzmjydFxjdcf0wuDW1hvVtoq3Uw5yALABqxcQ",
-  "erc20RewardToken": "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
   "dataCollection": {
     "delayMs": 1000,
     "maxAttempts": 3
   },
+  "erc20RewardToken": "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
+  "evmNetworkId": 100,
+  "evmPrivateEncrypted": "kmpTKq5Wh9r9x5j3U9GqZr3NYnjK2g0HtbzeUBOuLC2y3x8ja_SKBNlB2AZ6LigXHP_HeMitftVUtzmoj8CFfVP9SqjWoL6IPku1hVTWkdTn97g1IxzmjydFxjdcf0wuDW1hvVtoq3Uw5yALABqxcQ",
   "incentives": {
     "requirePriceLabel": true,
-    "contentEvaluator": {},
+    "contentEvaluator": {
+      "multipliers": [
+        {
+          "select": ["ISSUE_SPECIFICATION"],
+          "relevance": 1
+        },
+        {
+          "select": ["PULL_AUTHOR"],
+          "relevance": 1
+        },
+        {
+          "select": ["PULL_ASSIGNEE"],
+          "relevance": 1
+        },
+        {
+          "select": ["PULL_COLLABORATOR"],
+          "relevance": 1
+        },
+        {
+          "select": ["PULL_CONTRIBUTOR"],
+          "relevance": 1
+        }
+      ]
+    },
     "userExtractor": {
       "redeemTask": true
     },
@@ -16,80 +39,275 @@
     "formattingEvaluator": {
       "multipliers": [
         {
-          "select": ["ISSUE_SPECIFICATION"],
           "formattingMultiplier": 1,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "ISSUE_SPECIFICATION"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         },
         {
-          "select": ["ISSUE_AUTHOR"],
           "formattingMultiplier": 1,
-          "wordValue": 0.2
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "ISSUE_AUTHOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.2 }
         },
         {
-          "select": ["ISSUE_ASSIGNEE"],
           "formattingMultiplier": 0,
-          "wordValue": 0
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "ISSUE_ASSIGNEE"
+          ],
+          "symbols": { "\\b\\w+\\b": 0 }
         },
         {
-          "select": ["ISSUE_COLLABORATOR"],
           "formattingMultiplier": 1,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "ISSUE_COLLABORATOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         },
         {
-          "select": ["ISSUE_CONTRIBUTOR"],
           "formattingMultiplier": 0.25,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "ISSUE_CONTRIBUTOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         },
         {
-          "select": ["PULL_SPECIFICATION"],
           "formattingMultiplier": 0,
-          "wordValue": 0
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "PULL_SPECIFICATION"
+          ],
+          "symbols": { "\\b\\w+\\b": 0 }
         },
         {
-          "select": ["PULL_AUTHOR"],
           "formattingMultiplier": 2,
-          "wordValue": 0.2
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "PULL_AUTHOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.2 }
         },
         {
-          "select": ["PULL_ASSIGNEE"],
           "formattingMultiplier": 1,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "PULL_ASSIGNEE"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         },
         {
-          "select": ["PULL_COLLABORATOR"],
           "formattingMultiplier": 1,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "PULL_COLLABORATOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         },
         {
-          "select": ["PULL_CONTRIBUTOR"],
           "formattingMultiplier": 0.25,
-          "wordValue": 0.1
+          "scores": {
+            "a": 1,
+            "blockquote": 0,
+            "br": 0,
+            "code": 1,
+            "em": 0,
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "h4": 1,
+            "h5": 1,
+            "h6": 1,
+            "hr": 0,
+            "img": 0,
+            "li": 1,
+            "p": 1,
+            "strong": 0,
+            "td": 1
+          },
+          "select": [
+            "PULL_CONTRIBUTOR"
+          ],
+          "symbols": { "\\b\\w+\\b": 0.1 }
         }
-      ],
-      "scores": {
-        "br": 0,
-        "code": 1,
-        "p": 1,
-        "em": 0,
-        "img": 0,
-        "strong": 0,
-        "blockquote": 0,
-        "h1": 1,
-        "h2": 1,
-        "h3": 1,
-        "h4": 1,
-        "h5": 1,
-        "h6": 1,
-        "a": 1,
-        "li": 1,
-        "td": 1,
-        "hr": 0
-      }
+      ]
+    },
+    "githubComment": {
+      "debug": true,
+      "post": false
     },
     "permitGeneration": {},
-    "githubComment": {
-      "post": false,
-      "debug": true
+    "requirePriceLabel": true,
+    "userExtractor": {
+      "redeemTask": true
     }
   }
 }

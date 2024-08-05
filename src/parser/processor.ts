@@ -90,14 +90,14 @@ export interface Result {
 }
 
 export interface GithubCommentScore {
+  id: number;
   content: string;
   url: string;
   type: CommentKind | CommentAssociation;
   score?: {
     formatting?: {
-      content: Record<string, { count: number; score: number }>;
+      content: Record<string, { symbols: { [p: string]: { count: number; multiplier: number } }; score: number }>;
       formattingMultiplier: number;
-      wordValue: number;
     };
     relevance?: number;
     clarity?: number;
