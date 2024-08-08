@@ -1,7 +1,7 @@
 import { Static, Type } from "@sinclair/typebox";
 import { CommentAssociation, CommentKind, CommentType } from "./comment-types";
 
-const type = Type.Union(
+export const commentType = Type.Union(
   Object.keys(CommentKind).flatMap((kind) =>
     Object.keys(CommentAssociation).map((association) => Type.Literal(`${kind}_${association}` as CommentType))
   )
@@ -13,7 +13,7 @@ export const formattingEvaluatorConfigurationType = Type.Object({
    */
   multipliers: Type.Array(
     Type.Object({
-      select: Type.Array(type),
+      select: Type.Array(commentType),
       formattingMultiplier: Type.Number(),
       wordValue: Type.Number(),
     }),

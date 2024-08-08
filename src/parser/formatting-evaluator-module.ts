@@ -109,7 +109,7 @@ export class FormattingEvaluatorModule implements Module {
     for (const element of elements) {
       const tagName = element.tagName.toLowerCase();
       const wordCount = this._countWords(element.textContent || "");
-      let score = 1;
+      let score = 0;
       if (this._configuration?.scores?.[tagName] !== undefined) {
         score = this._configuration.scores[tagName];
       }

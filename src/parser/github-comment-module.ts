@@ -13,6 +13,7 @@ import { getERC20TokenSymbol } from "../helpers/web3";
 import { IssueActivity } from "../issue-activity";
 import program from "./command-line";
 import { GithubCommentScore, Module, Result } from "./processor";
+import { JSDOM } from "jsdom";
 
 interface SortedTasks {
   issues: { specification: GithubCommentScore | null; comments: GithubCommentScore[] };
@@ -31,6 +32,16 @@ export class GithubCommentModule implements Module {
    */
   private _lastCommentId: number | null = process.env.COMMENT_ID ? Number(process.env.COMMENT_ID) : null;
 
+  /**
+   * Ensures that a string containing special characters get HTML encoded.
+   */
+  _encodeHTML(str: string) {
+    const dom = new JSDOM();
+    const div = dom.window.document.createElement("div");
+    div.appendChild(dom.window.document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   async transform(data: Readonly<IssueActivity>, result: Result): Promise<Result> {
     const bodyArray: (string | undefined)[] = [];
 
@@ -40,8 +51,7 @@ export class GithubCommentModule implements Module {
     }
     // Add the workflow run url and the metadata in the GitHub's comment
     bodyArray.push("\n<!--");
-    bodyArray.push(`\n${getGithubWorkflowRunUrl()}\n`);
-    bodyArray.push(JSON.stringify(result, typeReplacer, 2));
+    bodyArray.push(this._encodeHTML(`\n${getGithubWorkflowRunUrl()}\n${JSON.stringify(result, typeReplacer, 2)}`));
     bodyArray.push("\n-->");
     const body = bodyArray.join("");
     if (this._configuration?.debug) {
@@ -153,23 +163,24 @@ export class GithubCommentModule implements Module {
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
-        .replaceAll("`", "&#96;");
+        .replaceAll("`", "&#96;")
+        .replace(/([\s\S]{64}).[\s\S]+/, "$1&hellip;");
       return `
           <tr>
             <td>
               <h6>
-                <a href="${commentScore.url}" target="_blank" rel="noopener">${sanitizedContent.replace(/(.{64})..+/, "$1&hellip;")}</a>
+                <a href="${commentScore.url}" target="_blank" rel="noopener">${sanitizedContent}</a>
               </h6>
             </td>
             <td>
             <details>
               <summary>
                 ${Object.values(commentScore.score?.formatting?.content || {}).reduce((acc, curr) => {
-                  const multiplier = new Decimal(
-                    commentScore.score?.formatting
-                      ? commentScore.score.formatting.formattingMultiplier * commentScore.score.formatting.wordValue
-                      : 0
-                  );
+                  const multiplier = commentScore.score?.formatting
+                    ? new Decimal(commentScore.score.formatting.formattingMultiplier).mul(
+                        commentScore.score.formatting.wordValue
+                      )
+                    : new Decimal(0);
                   return acc.add(multiplier.mul(curr.score * curr.count));
                 }, new Decimal(0))}
               </summary>

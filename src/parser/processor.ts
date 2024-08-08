@@ -90,9 +90,11 @@ export interface Result {
 }
 
 export interface GithubCommentScore {
+  id: number;
   content: string;
   url: string;
   type: CommentKind | CommentAssociation;
+  diff_hunk?: string;
   score?: {
     formatting?: {
       content: Record<string, { count: number; score: number }>;

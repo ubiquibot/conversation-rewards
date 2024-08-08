@@ -406,9 +406,7 @@
         "state": "closed",
         "locked": false,
         "assignee": null,
-        "assignees": [
-
-        ],
+        "assignees": [],
         "milestone": null,
         "comments": 0,
         "created_at": "2024-02-16T17:20:43Z",
@@ -509,9 +507,7 @@
           "allow_forking": true,
           "is_template": false,
           "web_commit_signoff_required": false,
-          "topics": [
-
-          ],
+          "topics": [],
           "visibility": "public",
           "forks": 18,
           "open_issues": 25,
@@ -938,15 +934,11 @@
           "type": "User",
           "site_admin": false
         },
-        "labels": [
-
-        ],
+        "labels": [],
         "state": "closed",
         "locked": false,
         "assignee": null,
-        "assignees": [
-
-        ],
+        "assignees": [],
         "milestone": null,
         "comments": 6,
         "created_at": "2024-02-16T18:10:14Z",
@@ -1048,9 +1040,7 @@
           "allow_forking": true,
           "is_template": false,
           "web_commit_signoff_required": false,
-          "topics": [
-
-          ],
+          "topics": [],
           "visibility": "public",
           "forks": 10,
           "open_issues": 6,
@@ -1878,9 +1868,7 @@
         "state": "closed",
         "locked": false,
         "assignee": null,
-        "assignees": [
-
-        ],
+        "assignees": [],
         "milestone": null,
         "comments": 2,
         "created_at": "2024-02-16T19:35:00Z",
@@ -1981,9 +1969,7 @@
           "allow_forking": true,
           "is_template": false,
           "web_commit_signoff_required": false,
-          "topics": [
-
-          ],
+          "topics": [],
           "visibility": "public",
           "forks": 10,
           "open_issues": 6,
