@@ -100,7 +100,7 @@ export interface GithubCommentScore {
       content: Record<string, { symbols: { [p: string]: { count: number; multiplier: number } }; score: number }>;
       multiplier: number;
     };
-    relevance?: number;
+    relevance?: number | string;
     clarity?: number;
     reward: number;
   };

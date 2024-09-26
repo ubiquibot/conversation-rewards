@@ -91,19 +91,21 @@ export class ContentEvaluatorModule implements Module {
 
     for (let i = 0; i < commentsWithScore.length; i++) {
       const currentComment = commentsWithScore[i];
-      let currentRelevance = 1; // For comments not in fixed relevance types and missed by OpenAI evaluation
+      let currentRelevance: number | string = '-'; // Default to '-' for skipped or unevaluated comments
 
       if (this._fixedRelevances[currentComment.type]) {
         currentRelevance = this._fixedRelevances[currentComment.type];
       } else if (!isNaN(relevancesByAI[currentComment.id])) {
         currentRelevance = relevancesByAI[currentComment.id];
+      } else  {
+        currentRelevance = '-';
       }
 
       const currentReward = new Decimal(currentComment.score?.reward || 0);
       currentComment.score = {
         ...(currentComment.score || {}),
         relevance: new Decimal(currentRelevance).toNumber(),
-        reward: currentReward.mul(currentRelevance).toNumber(),
+        reward: currentRelevance === '-' ? '-' : currentReward.mul(currentRelevance).toNumber(),
       };
     }
 
