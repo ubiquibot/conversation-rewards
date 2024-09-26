@@ -52,7 +52,7 @@ export class UserExtractorModule implements Module {
     data.self?.assignees?.forEach((assignee) => {
       const task = data.self
         ? {
-            reward: new Decimal(this._extractTaskPrice(data.self)).mul(this._getTaskMultiplier(data.self)).toNumber(),
+            reward: new Decimal(this._extractTaskPrice(data.self)).mul(this._getTaskMultiplier(data.self)).toFixed(2),
             multiplier: this._getTaskMultiplier(data.self).toNumber(),
           }
         : undefined;

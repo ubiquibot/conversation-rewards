@@ -66,7 +66,7 @@ export class Processor {
       }
     }
 
-    return totalReward.toNumber();
+    return totalReward.toFixed(2);
   }
 }
 
