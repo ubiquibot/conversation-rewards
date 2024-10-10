@@ -239,27 +239,35 @@ export class ContentEvaluatorModule implements Module {
       throw new Error("Issue specification comment is missing or empty");
     }
     return `Instruction: 
-    Go through all the comments first keep them in memory, then start with the following prompt
+    Start by thoroughly reading all comments and retaining their content for the evaluation.
 
     OUTPUT FORMAT:
-    {ID: CONNECTION SCORE} For Each record in the EVALUATING SECTION, based on the average value from the CONNECTION SCORE from ALL COMMENTS, TITLE and BODY, one for each comment under evaluation
-    Global Context:
+    Provide a JSON object with the format: {ID: CONNECTION_SCORE} for each record in the evaluation section. 
+    The CONNECTION_SCORE should reflect the average relevance based on all comments, title, and body.
+
+    GLOBAL CONTEXT:
     Specification
     "${issue}"
+    
     ALL COMMENTS:
     ${JSON.stringify(allComments, null, 2)}
+    
     IMPORTANT CONTEXT:
-    You have now seen all the comments made by other users, keeping the comments in mind think in what ways comments to be evaluated be connected. The comments that were related to the comment under evaluation might come after or before them in the list of all comments but they would be there in ALL COMMENTS. COULD BE BEFORE OR AFTER, you have diligently search through all the comments in ALL COMMENTS.
+    Consider all comments when evaluating connections. Relevant comments may appear before or after the comment being evaluated, so examine all of them closely.
+    
     START EVALUATING:
     ${JSON.stringify(comments, null, 2)}
-    POST EVALUATION:
-    THE RESULT FROM THIS SHOULD BE ONLY THE SCORES BASED ON THE FLOATING POINT VALUE CONNECTING HOW CLOSE THE COMMENT IS FROM ALL COMMENTS AND TITLE AND BODY.
 
-    Now Assign them scores a float value ranging from 0 to 1, where 0 is spam (lowest value), and 1 is something that's very relevant (Highest Value), here relevance should mean a variety of things, it could be a fix to the issue, it could be a bug in solution, it could a SPAM message, it could be comment, that on its own does not carry weight, but when CHECKED IN ALL COMMENTS, may be a crucial piece of information for debugging and solving the ticket. If YOU THINK ITS NOT RELATED to ALL COMMENTS or TITLE OR ISSUE SPEC, then give it a 0 SCORE.
+    POST EVALUATION:
+    Provide only the connection scores as floating-point values indicating the relevance of each comment based on its connection to the overall context.
+
+    SCORING CRITERIA:
+    Assign scores from 0 to 1, 0: Not related (e.g., spam), 1: Highly relevant (e.g., solutions, bugs)
+    Consider the context of all comments; even minor details may be significant for resolving the issue. If a comment is unrelated to all comments, title, or issue specification, assign a score of 0.
 
     OUTPUT:
-    RETURN ONLY A JSON with the ID and the connection score (FLOATING POINT VALUE) with ALL COMMENTS TITLE AND BODY for each comment under evaluation.  RETURN ONLY ONE CONNECTION SCORE VALUE for each comment. Total number of properties in your JSON response should equal exactly ${comments.length}
-    }`;
+    Return a JSON object containing the ID and the connection score for each evaluated comment. The number of entries in the JSON response must match exactly ${comments.length}.
+    `;
   }
 
   _generatePromptForPrComments(issue: string, comments: PrCommentToEvaluate[]) {
