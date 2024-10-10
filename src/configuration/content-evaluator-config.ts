@@ -10,7 +10,7 @@ const openAiType = Type.Object(
     /**
      * Specific endpoint to send the comments to.
      */
-    endpoint: Type.String({ default: "" }),
+    endpoint: Type.String({ default: "https://api.openai.com/v1" }),
   },
   { default: {} }
 );
