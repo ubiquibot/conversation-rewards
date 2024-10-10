@@ -34,6 +34,8 @@ export async function run() {
     const processor = new Processor();
     await processor.run(activity);
     let result = processor.dump();
+    const zeroFilterResult = resultFilter(result);
+    result = zeroFilterResult;
     if (result.length > GITHUB_PAYLOAD_LIMIT) {
       const resultObject = JSON.parse(result) as Result;
       for (const [key, value] of Object.entries(resultObject)) {
@@ -72,4 +74,17 @@ async function preCheck() {
     return false;
   }
   return true;
+}
+
+function resultFilter(result: string) {
+  // remove 0 total from github comment
+  const parsedResult = JSON.parse(result) as Result;
+  const filterCheckKeys = Object.keys(parsedResult).filter((value) => parsedResult[value].total <= 0);
+  if (filterCheckKeys.length > 0) {
+    for (const key of filterCheckKeys) {
+      delete parsedResult[key];
+    }
+    return JSON.stringify(parsedResult);
+  }
+  return result;
 }
